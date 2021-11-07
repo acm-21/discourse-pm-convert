@@ -13,6 +13,7 @@ after_initialize do
     module OverridingGuardian
       def can_convert_topic?(topic)
         return true if super(topic)
+        return false if is_anonymous?
         return true if @user.groups.any? {|group| group.name == 'Programming-TAs' }
         false
       end
