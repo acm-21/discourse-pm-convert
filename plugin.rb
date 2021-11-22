@@ -15,6 +15,7 @@ after_initialize do
         return true if super(topic)
         return false if is_anonymous?
         return true if @user.groups.any? {|group| group.name == 'Programming-TAs' }
+        return true if @user.groups.any? {|group| group.name == 'Great-Ideas-TAs' }
         false
       end
     end
